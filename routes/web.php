@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\TypeController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -31,3 +32,12 @@ Route::post('/admin/login', [AdminController::class, 'postLogin'])->name('admin.
 Route::get('/admin/register', [AdminController::class, 'register'])->name('admin.register');
 Route::post('/admin/register', [AdminController::class, 'postRegister'])->name('admin.postRegister');
 Route::get('/admin/logout', [AdminController::class, 'logout'])->name('admin.logout');
+
+
+// Admin Type Routes
+Route::get('/admin/types/', [TypeController::class, 'index'])->name('admin.type.index');
+Route::get('/admin/types/create', [TypeController::class, 'create'])->name('admin.type.create');
+Route::post('/admin/types/create', [TypeController::class, 'store'])->name('admin.type.store');
+Route::get('/admin/types/{type}/edit', [TypeController::class, 'edit'])->name('admin.type.edit');
+Route::put('/admin/types/{type}', [TypeController::class, 'update'])->name('admin.type.update');
+Route::delete('/admin/types/{type}', [TypeController::class, 'destroy'])->name('admin.type.destroy');
