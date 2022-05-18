@@ -1,6 +1,9 @@
 <?php
 
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\DistrictController;
+use App\Http\Controllers\DivisionController;
+use App\Http\Controllers\PropertyController;
 use App\Http\Controllers\TypeController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
@@ -34,10 +37,22 @@ Route::post('/admin/register', [AdminController::class, 'postRegister'])->name('
 Route::get('/admin/logout', [AdminController::class, 'logout'])->name('admin.logout');
 
 
-// Admin Type Routes
+// Property Type Routes
 Route::get('/admin/types/', [TypeController::class, 'index'])->name('admin.type.index');
 Route::get('/admin/types/create', [TypeController::class, 'create'])->name('admin.type.create');
 Route::post('/admin/types/create', [TypeController::class, 'store'])->name('admin.type.store');
 Route::get('/admin/types/{type}/edit', [TypeController::class, 'edit'])->name('admin.type.edit');
 Route::put('/admin/types/{type}', [TypeController::class, 'update'])->name('admin.type.update');
 Route::delete('/admin/types/{type}', [TypeController::class, 'destroy'])->name('admin.type.destroy');
+
+// Property Routes
+Route::get('/admin/properties/', [PropertyController::class, 'index'])->name('admin.property.index');
+Route::get('/admin/properties/create', [PropertyController::class, 'create'])->name('admin.property.create');
+// Route::post('/admin/properties/create', [TypeController::class, 'store'])->name('admin.property.store');
+// Route::get('/admin/properties/{type}/edit', [TypeController::class, 'edit'])->name('admin.property.edit');
+// Route::put('/admin/properties/{type}', [TypeController::class, 'update'])->name('admin.property.update');
+// Route::delete('/admin/properties/{type}', [TypeController::class, 'destroy'])->name('admin.property.destroy');
+
+// Ajax Routes
+Route::get('/admin/division/getDistrictAjax/{id}', [DivisionController::class, 'getDistrictAjax'])->name('admin.division.getDistrictAjax');
+Route::get('/admin/district/getUpazilaAjax/{id}', [DistrictController::class, 'getUpazilaAjax'])->name('admin.district.getUpazilaAjax');

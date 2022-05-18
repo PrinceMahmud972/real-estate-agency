@@ -13,6 +13,7 @@ class AdminController extends Controller
     public function __construct()
     {
         $this->middleware('auth:admin')->except('login', 'postLogin', 'register', 'postRegister');
+        $this->middleware('guest:admin')->only('login', 'postLogin', 'register', 'postRegister');
     }
 
     public function index() {

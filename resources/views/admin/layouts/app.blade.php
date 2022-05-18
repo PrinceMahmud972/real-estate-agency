@@ -41,10 +41,60 @@
         </div>
     </div>
 
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.0-beta1/js/bootstrap.min.js"
         integrity="sha512-Hqe3s+yLpqaBbXM6VA0cnj/T56ii5YjNrMT9v+us11Q81L0wzUG0jEMNECtugqNu2Uq5MSttCg0p4KK0kCPVaQ=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+
+        <script type="text/javascript">
+            $(document).ready(function() {
+                divisionSelect = $('select[name="division"]');
+                districtSelect = $('select[name="district"]');
+                upazilaSelect = $('select[name="upazila"]');
+
+                // view district on division select
+                divisionSelect.on('change', function() {
+                    divisionId = $(this).val();
+                    if(divisionId) {
+                        $.ajax({
+                            type: "GET",
+                            url: "/admin/division/getDistrictAjax/" + divisionId,
+                            dataType: "json",
+                            success:function(data) {
+                                districtSelect.empty();
+                                $.each(data, function(key, val) {
+                                    districtSelect.append('<option value="'+ val.id +'">'+ val.name +'</option>');
+                                });
+                                districtSelect.removeAttr('disabled')
+                            }
+                        });
+                    }
+                });
+
+                // view upazilas on district select
+                districtSelect.on('change', function() {
+                    districtId = $(this).val();
+
+                    if(districtId) {
+                        $.ajax({
+                            type: "GET",
+                            url: "/admin/district/getUpazilaAjax/" + districtId,
+                            dataType: "json",
+                            success: function(data) {
+                                upazilaSelect.empty();
+                                $.each(data, function(key, val) {
+                                    upazilaSelect.append('<option value="'+ val.id +'">'+ val.name +'</option>');
+                                });
+                                upazilaSelect.removeAttr('disabled');
+                            }
+                        })
+                    }
+                })
+
+            });
+        </script>
+
 </body>
 
 </html>

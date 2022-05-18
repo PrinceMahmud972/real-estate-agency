@@ -20,6 +20,7 @@ class CreatePropertiesTable extends Migration
             $table->string('name');
             $table->integer('price');
             $table->integer('size');
+            $table->integer('image');
             $table->integer('bedroom')->nullable();
             $table->integer('bathroom')->nullable();
             $table->string('purpose');
