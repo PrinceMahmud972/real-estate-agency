@@ -9,6 +9,10 @@ use Illuminate\Support\Facades\File;
 class TypeController extends Controller
 {
 
+    function __construct()
+    {
+        $this->middleware('auth:admin');
+    }
 
     public function index() {
         $types = Type::all();

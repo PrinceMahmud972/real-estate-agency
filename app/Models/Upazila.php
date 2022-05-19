@@ -12,4 +12,8 @@ class Upazila extends Model
     public function district() {
         return $this->belongsTo(District::class);
     }
+
+    public function properties() {
+        return $this->hasMany(Property::class);
+    }
 }

@@ -30,9 +30,9 @@
                 @foreach ($properties as $property)
                 <tr>
                     <th scope="row">{{ $property->id }}</th>
-                    <td><img src="/img/{{ $property->image }}" alt="" class="img-fluid"></td>
+                    <td><img src="/img/{{ $property->image }}" alt="" class="img-fluid" style="max-width: 150px" ></td>
                     <td>{{ $property->name }}</td>
-                    <td>{{ $property->address }}</td>
+                    <td>{{ $property->upazila->name }}, {{ $property->upazila->district->name }}, {{ $property->upazila->district->division->name }}</td>
                     <td>
                         <a href="{{ route('admin.property.edit', ['property' => $property->id]) }}" class="btn btn-sm btn-primary">Edit</a>
                         <form action="{{ route('admin.property.destroy', ['property' => $property->id]) }}" method="post" class="d-inline-block">
