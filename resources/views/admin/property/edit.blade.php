@@ -33,7 +33,7 @@
                     <div style="min-width: 50%">
                         <label for="purpose">Property Purpose</label>
                         <select class="form-select" name="purpose">
-                            <option value="sale" {{ $property->purpose == 'sale' ? 'selected' : '' }}>Sale</option>
+                            <option value="sell" {{ $property->purpose == 'sell' ? 'selected' : '' }}>Sell</option>
                             <option value="rent" {{ $property->purpose == 'rend' ? 'selected' : '' }}>Rent</option>
 
                         </select>

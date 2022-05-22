@@ -16,7 +16,8 @@ class AdminController extends Controller
         $this->middleware('guest:admin')->only('login', 'postLogin', 'register', 'postRegister');
     }
 
-    public function index() {
+    public function index()
+    {
         return view('admin.index');
     }
 
@@ -44,7 +45,7 @@ class AdminController extends Controller
         ]);
 
 
-        if(Auth::guard('admin')->attempt($credentials)) {
+        if (Auth::guard('admin')->attempt($credentials)) {
             $request->session()->regenerate();
             return redirect()->route('admin.home');
         }
@@ -93,7 +94,7 @@ class AdminController extends Controller
      */
     public function logout(Request $request)
     {
-        Auth::logout();
+        Auth::guard('admin')->logout();
         $request->session()->invalidate();
         $request->session()->regenerateToken();
 

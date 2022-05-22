@@ -33,7 +33,7 @@
                         <label for="purpose">Property Purpose</label>
                         <select class="form-select" name="purpose">
                             <option selected disabled>Select the purpose</option>
-                            <option value="sale">Sale</option>
+                            <option value="sell">Sell</option>
                             <option value="rent">Rent</option>
 
                         </select>
