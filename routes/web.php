@@ -5,6 +5,7 @@ use App\Http\Controllers\DistrictController;
 use App\Http\Controllers\DivisionController;
 use App\Http\Controllers\PropertyController;
 use App\Http\Controllers\TypeController;
+use App\Http\Controllers\UpazilaController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -51,6 +52,9 @@ Route::post('/admin/properties/create', [PropertyController::class, 'store'])->n
 Route::get('/admin/properties/{property}/edit', [PropertyController::class, 'edit'])->name('admin.property.edit');
 Route::put('/admin/properties/{property}', [PropertyController::class, 'update'])->name('admin.property.update');
 Route::delete('/admin/properties/{property}', [PropertyController::class, 'destroy'])->name('admin.property.destroy');
+
+// Location Routes
+Route::get('/admin/upazilas', [UpazilaController::class, 'index'])->name('admin.upazila.index');
 
 // Ajax Routes
 Route::get('/admin/division/getDistrictAjax/{id}', [DivisionController::class, 'getDistrictAjax'])->name('admin.division.getDistrictAjax');

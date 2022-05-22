@@ -9,11 +9,13 @@ class Upazila extends Model
 {
     use HasFactory;
 
-    public function district() {
+    public function district()
+    {
         return $this->belongsTo(District::class);
     }
 
-    public function properties() {
-        return $this->hasMany(Property::class);
+    public function properties()
+    {
+        return $this->hasMany(Property::class, 'address_id');
     }
 }

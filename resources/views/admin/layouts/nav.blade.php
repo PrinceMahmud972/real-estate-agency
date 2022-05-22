@@ -72,7 +72,7 @@
                 </button>
                 <div class="collapse px-4" id="location-collapse">
                     <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-                        <li><a href="#"
+                        <li><a href="{{ route('admin.upazila.index') }}"
                                 class="link-dark d-inline-flex text-decoration-none rounded align-items-center">
                                 <i class="fa-solid fa-circle-dot"></i></i>&nbsp;
                                 All Location</a>
