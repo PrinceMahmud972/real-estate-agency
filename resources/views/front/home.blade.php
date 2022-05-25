@@ -85,7 +85,7 @@
                     </a>
                 </div>
                 @endforeach
-                
+
 
             </div>
         </div>
@@ -147,13 +147,13 @@
                         <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.4s">
                             <div class="property-item rounded overflow-hidden">
                                 <div class="position-relative overflow-hidden">
-                                    <a href=""><img class="img-fluid" src="img/{{ $featureProperty->image }}" alt=""></a>
+                                    <a href="{{ route('property.show', ['property' => $featureProperty->id]) }}"><img class="img-fluid" src="img/{{ $featureProperty->image }}" alt=""></a>
                                     <div class="bg-primary rounded text-white position-absolute start-0 top-0 m-4 py-1 px-3">For {{ $featureProperty->purpose }}</div>
                                     <div class="bg-white rounded-top text-primary position-absolute start-0 bottom-0 mx-4 pt-1 px-3">{{ $featureProperty->type->name }}</div>
                                 </div>
                                 <div class="p-4 pb-0">
                                     <h5 class="text-primary mb-3">${{ $featureProperty->price }}</h5>
-                                    <a class="d-block h5 mb-2" href="">{{ $featureProperty->name }}</a>
+                                    <a class="d-block h5 mb-2" href="{{ route('property.show', ['property' => $featureProperty->id]) }}">{{ $featureProperty->name }}</a>
                                     <p><i class="fa fa-map-marker-alt text-primary me-2"></i>{{ $featureProperty->upazila->name }}</p>
                                 </div>
                                 <div class="d-flex border-top">
@@ -164,7 +164,7 @@
                             </div>
                         </div>
                         @endforeach
-                        
+
                         <div class="col-12 text-center wow fadeInUp" data-wow-delay="0.1s">
                             <a class="btn btn-primary py-3 px-5" href="">Browse More Property</a>
                         </div>
@@ -176,13 +176,13 @@
                         <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.4s">
                             <div class="property-item rounded overflow-hidden">
                                 <div class="position-relative overflow-hidden">
-                                    <a href=""><img class="img-fluid" src="img/{{ $rentProperty->image }}" alt=""></a>
+                                    <a href="{{ route('property.show', ['property' => $rentProperty->id]) }}"><img class="img-fluid" src="img/{{ $rentProperty->image }}" alt=""></a>
                                     <div class="bg-primary rounded text-white position-absolute start-0 top-0 m-4 py-1 px-3">For {{ $rentProperty->purpose }}</div>
                                     <div class="bg-white rounded-top text-primary position-absolute start-0 bottom-0 mx-4 pt-1 px-3">{{ $rentProperty->type->name }}</div>
                                 </div>
                                 <div class="p-4 pb-0">
                                     <h5 class="text-primary mb-3">${{ $rentProperty->price }}</h5>
-                                    <a class="d-block h5 mb-2" href="">{{ $rentProperty->name }}</a>
+                                    <a class="d-block h5 mb-2" href="{{ route('property.show', ['property' => $rentProperty->id]) }}">{{ $rentProperty->name }}</a>
                                     <p><i class="fa fa-map-marker-alt text-primary me-2"></i>{{ $rentProperty->upazila->name }}</p>
                                 </div>
                                 <div class="d-flex border-top">
@@ -193,7 +193,7 @@
                             </div>
                         </div>
                         @endforeach
-                        
+
                         <div class="col-12 text-center wow fadeInUp" data-wow-delay="0.1s">
                             <a class="btn btn-primary py-3 px-5" href="">Browse More Property</a>
                         </div>
@@ -205,13 +205,13 @@
                         <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.4s">
                             <div class="property-item rounded overflow-hidden">
                                 <div class="position-relative overflow-hidden">
-                                    <a href=""><img class="img-fluid" src="img/{{ $sellProperty->image }}" alt=""></a>
+                                    <a href="{{ route('property.show', ['property' => $sellProperty->id]) }}"><img class="img-fluid" src="img/{{ $sellProperty->image }}" alt=""></a>
                                     <div class="bg-primary rounded text-white position-absolute start-0 top-0 m-4 py-1 px-3">For {{ $sellProperty->purpose }}</div>
                                     <div class="bg-white rounded-top text-primary position-absolute start-0 bottom-0 mx-4 pt-1 px-3">{{ $sellProperty->type->name }}</div>
                                 </div>
                                 <div class="p-4 pb-0">
                                     <h5 class="text-primary mb-3">${{ $sellProperty->price }}</h5>
-                                    <a class="d-block h5 mb-2" href="">{{ $sellProperty->name }}</a>
+                                    <a class="d-block h5 mb-2" href="{{ route('property.show', ['property' => $sellProperty->id]) }}">{{ $sellProperty->name }}</a>
                                     <p><i class="fa fa-map-marker-alt text-primary me-2"></i>{{ $sellProperty->upazila->name }}</p>
                                 </div>
                                 <div class="d-flex border-top">
@@ -222,7 +222,7 @@
                             </div>
                         </div>
                         @endforeach
-                        
+
                         <div class="col-12 text-center wow fadeInUp" data-wow-delay="0.1s">
                             <a class="btn btn-primary py-3 px-5" href="">Browse More Property</a>
                         </div>

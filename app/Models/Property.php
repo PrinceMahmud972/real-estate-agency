@@ -16,4 +16,11 @@ class Property extends Model
     public function type() {
         return $this->belongsTo(Type::class);
     }
+
+    public function scopeFilter($query) {
+        if(request()->has('purpose')) {
+            $query->where('purpose', request('purpose'));
+        }
+        return $query;
+    }
 }

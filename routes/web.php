@@ -22,6 +22,8 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
+Route::get('/properties', [HomeController::class, 'propertyIndex'])->name('property.index');
+Route::get('/properties/{property}', [HomeController::class, 'propertyShow'])->name('property.show');
 
 Route::get('/login', [UserController::class, 'login'])->name('login');
 Route::post('/login', [UserController::class, 'postLogin'])->name('postLogin');
