@@ -28,6 +28,9 @@
     <!-- Customized Bootstrap Stylesheet -->
     <link href="/css/bootstrap.min.css" rel="stylesheet">
 
+    <!-- Select2 Stylesheet -->
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+
     <!-- Template Stylesheet -->
     <link href="/css/style.css" rel="stylesheet">
 </head>
@@ -62,9 +65,11 @@
     <script src="/lib/easing/easing.min.js"></script>
     <script src="/lib/waypoints/waypoints.min.js"></script>
     <script src="/lib/owlcarousel/owl.carousel.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
 
     <!-- Template Javascript -->
     <script src="/js/main.js"></script>
+
 </body>
 
 </html>
