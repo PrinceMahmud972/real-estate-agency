@@ -77,7 +77,7 @@
                                 <i class="fa-solid fa-circle-dot"></i></i>&nbsp;
                                 All Location</a>
                         </li>
-                        <li><a href="#"
+                        <li><a href="admin.upazila.create"
                                 class="link-dark d-inline-flex text-decoration-none rounded align-items-center">
                                 <i class="fa-solid fa-circle-dot"></i>&nbsp;
                                 Add New</a></li>

@@ -56,6 +56,10 @@ Route::delete('/admin/properties/{property}', [PropertyController::class, 'destr
 
 // Location Routes
 Route::get('/admin/upazilas', [UpazilaController::class, 'index'])->name('admin.upazila.index');
+Route::get('/admin/upazilas/create', [UpazilaController::class, 'create'])->name('admin.upazila.create');
+Route::post('/admin/upazilas', [UpazilaController::class, 'store'])->name('admin.upazila.store');
+Route::delete('/admin/upazilas/{upazila}', [UpazilaController::class, 'destroy'])->name('admin.upazila.destroy');
+
 
 // Ajax Routes
 Route::get('/admin/division/getDistrictAjax/{id}', [DivisionController::class, 'getDistrictAjax'])->name('admin.division.getDistrictAjax');

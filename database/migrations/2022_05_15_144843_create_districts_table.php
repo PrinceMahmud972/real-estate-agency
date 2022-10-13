@@ -17,10 +17,11 @@ class CreateDistrictsTable extends Migration
             $table->id();
             $table->foreignId('division_id')->constrained();
             $table->string('name');
-            $table->string('bn_name');
+            $table->string('bn_name')->nullable();
             $table->string('lat');
             $table->string('lon');
-            $table->string('url');
+            $table->string('url')->nullable();
+            $table->timestamps();
         });
     }
 

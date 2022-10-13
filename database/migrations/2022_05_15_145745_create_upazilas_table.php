@@ -17,8 +17,9 @@ class CreateUpazilasTable extends Migration
             $table->id();
             $table->foreignId('district_id')->constrained();
             $table->string('name');
-            $table->string('bn_name');
-            $table->string('url');
+            $table->string('bn_name')->nullable();
+            $table->string('url')->nullable();
+            $table->timestamps();
         });
     }
 
