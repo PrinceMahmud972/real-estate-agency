@@ -13,11 +13,11 @@
                 <form action="" class="">
                     <p class="text-center">Contact us for more information</p>
                     <div class="form-floating mb-3">
-                        <input type="text" class="form-control form-control-sm" id="bookingName" placeholder="Enter Name" style="">
+                        <input type="text" class="form-control form-control-sm" id="bookingName" placeholder="Enter Name" style="" value="{{ auth()->user()->name ?? '' }}">
                         <label for="bookingName">NAME*</label>
                     </div>
                     <div class="form-floating mb-3">
-                        <input type="email" class="form-control" id="bookingEmail" placeholder="Enter Email">
+                        <input type="email" class="form-control" id="bookingEmail" placeholder="Enter Email" value="{{ auth()->user()->email ?? '' }}">
                         <label for="bookingName">EMAIL*</label>
                     </div>
                     <div class="form-floating mb-3">

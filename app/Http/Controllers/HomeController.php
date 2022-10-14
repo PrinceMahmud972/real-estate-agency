@@ -14,7 +14,7 @@ class HomeController extends Controller
     {
         $this->types = Type::get();
         $this->upazilas = Upazila::has('properties')
-            ->with(['properties', 'district' => function($query) {
+            ->with(['properties', 'district' => function ($query) {
                 $query->with('division');
             }])
             ->get();
@@ -35,7 +35,8 @@ class HomeController extends Controller
         ]);
     }
 
-    public function propertyIndex(Request $request) {
+    public function propertyIndex()
+    {
         $properties = Property::filter()->latest()->paginate(15)->withQueryString();
         return view('front.property.index', [
             'properties' => $properties,
@@ -44,7 +45,8 @@ class HomeController extends Controller
         ]);
     }
 
-    public function propertyShow(Property $property) {
+    public function propertyShow(Property $property)
+    {
         return view('front.property.show', ['property' => $property]);
     }
 }

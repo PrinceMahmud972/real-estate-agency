@@ -41,7 +41,7 @@
             <div class="row g-4">
                 @foreach ($types as $type)
                 <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.4s">
-                    <a class="cat-item d-block bg-light text-center rounded p-3" href="">
+                    <a class="cat-item d-block bg-light text-center rounded p-3" href="{{ route('property.index', ['type' =>$type->id]) }}">
                         <div class="rounded p-4">
                             <div class="icon mb-3">
                                 <img class="img-fluid" src="img/{{ $type->image }}" alt="Icon">

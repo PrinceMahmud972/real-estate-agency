@@ -40,7 +40,7 @@ class UserController extends Controller
             'password' => 'required'
         ]);
 
-        if(Auth::attempt($credentials)) {
+        if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
             return redirect()->route('home');
         }
@@ -69,7 +69,7 @@ class UserController extends Controller
     {
         $request->validate([
             'name' => 'required|max:250',
-            'email' => 'required|email|max:100',
+            'email' => 'required|email|max:100|unique:users,email',
             'password' => 'required|min:6|max:100|confirmed',
         ]);
 
@@ -104,7 +104,6 @@ class UserController extends Controller
      */
     public function show(User $user)
     {
-
     }
 
     /**

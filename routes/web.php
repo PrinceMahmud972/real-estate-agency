@@ -25,12 +25,14 @@ Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/properties', [HomeController::class, 'propertyIndex'])->name('property.index');
 Route::get('/properties/{property}', [HomeController::class, 'propertyShow'])->name('property.show');
 
+// User login/register routes
 Route::get('/login', [UserController::class, 'login'])->name('login');
 Route::post('/login', [UserController::class, 'postLogin'])->name('postLogin');
 Route::get('/register', [UserController::class, 'register'])->name('register');
 Route::post('/register', [UserController::class, 'postRegister'])->name('postRegister');
 Route::get('/logout', [UserController::class, 'logout'])->name('logout');
 
+// Admin login/regiser routes
 Route::get('/admin', [AdminController::class, 'index'])->name('admin.home');
 Route::get('/admin/login', [AdminController::class, 'login'])->name('admin.login');
 Route::post('/admin/login', [AdminController::class, 'postLogin'])->name('admin.postLogin');
@@ -59,7 +61,6 @@ Route::get('/admin/upazilas', [UpazilaController::class, 'index'])->name('admin.
 Route::get('/admin/upazilas/create', [UpazilaController::class, 'create'])->name('admin.upazila.create');
 Route::post('/admin/upazilas', [UpazilaController::class, 'store'])->name('admin.upazila.store');
 Route::delete('/admin/upazilas/{upazila}', [UpazilaController::class, 'destroy'])->name('admin.upazila.destroy');
-
 
 // Ajax Routes
 Route::get('/admin/division/getDistrictAjax/{id}', [DivisionController::class, 'getDistrictAjax'])->name('admin.division.getDistrictAjax');
