@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\BookingController;
 use App\Http\Controllers\DistrictController;
 use App\Http\Controllers\DivisionController;
 use App\Http\Controllers\HomeController;
@@ -24,6 +25,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/properties', [HomeController::class, 'propertyIndex'])->name('property.index');
 Route::get('/properties/{property}', [HomeController::class, 'propertyShow'])->name('property.show');
+Route::post('/properties/{property}/bookings', [BookingController::class, 'store'])->name('booking.store');
 
 // User login/register routes
 Route::get('/login', [UserController::class, 'login'])->name('login');
@@ -39,6 +41,13 @@ Route::post('/admin/login', [AdminController::class, 'postLogin'])->name('admin.
 Route::get('/admin/register', [AdminController::class, 'register'])->name('admin.register');
 Route::post('/admin/register', [AdminController::class, 'postRegister'])->name('admin.postRegister');
 Route::get('/admin/logout', [AdminController::class, 'logout'])->name('admin.logout');
+
+// Booking Routes
+Route::get('/admin/bookings', [BookingController::class, 'index'])->name('admin.booking.index');
+Route::put('/admin/bookings/{booking}/accept', [BookingController::class, 'statusAccept'])->name('admin.booking.statusAccept');
+Route::put('/admin/bookings/{booking}/reject', [BookingController::class, 'statusReject'])->name('admin.booking.statusReject');
+Route::delete('/admin/bookings/{booking}', [BookingController::class, 'destroy'])->name('admin.booking.destroy');
+
 
 // Property Type Routes
 Route::get('/admin/types/', [TypeController::class, 'index'])->name('admin.type.index');

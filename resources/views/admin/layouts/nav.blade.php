@@ -15,7 +15,7 @@
                 </button>
                 <div class="collapse show px-4" id="home-collapse">
                     <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-                        <li><a href="#"
+                        <li><a href="{{ route('admin.booking.index') }}"
                                 class="link-dark d-inline-flex text-decoration-none rounded">Bookings</a>
                         </li>
                         <li><a href="#"

@@ -9,22 +9,30 @@ class Property extends Model
 {
     use HasFactory;
 
-    public function upazila() {
+    public function upazila()
+    {
         return $this->belongsTo(Upazila::class, 'address_id');
     }
 
-    public function type() {
+    public function type()
+    {
         return $this->belongsTo(Type::class);
     }
 
-    public function scopeFilter($query) {
-        if(request()->has('location')) {
+    public function bookings()
+    {
+        return $this->hasMany(Booking::class);
+    }
+
+    public function scopeFilter($query)
+    {
+        if (request()->has('location')) {
             $query->where('address_id', request('location'));
         }
-        if(request()->has('type')) {
+        if (request()->has('type')) {
             $query->where('type_id', request('type'));
         }
-        if(request()->has('purpose')) {
+        if (request()->has('purpose')) {
             $query->where('purpose', request('purpose'));
         }
 

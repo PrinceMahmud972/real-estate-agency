@@ -10,7 +10,8 @@
             </div>
             <div class="col-md-4 d-flex flex-column justify-content-end">
                 <h2 class="text-primary text-center">Makaan</h2>
-                <form action="" class="">
+                <form action="{{ route('booking.store', ['property' => $property->id]) }}" class="" method="post">
+                    @csrf
                     <p class="text-center">Contact us for more information</p>
                     <div class="form-floating mb-3">
                         <input type="text" class="form-control form-control-sm" id="bookingName" placeholder="Enter Name" style="" value="{{ auth()->user()->name ?? '' }}">
@@ -29,7 +30,11 @@
                         <label for="bookingMessage">MESSAGE*</label>
                     </div>
                     <div class="d-grid">
-                        <button class="btn btn-primary btn-lg">Book Now</button>
+                        @if(auth()->check() && auth()->user()->bookings()->get()->contains('property_id', $property->id))
+                            <button class="btn btn-primary btn-lg" disabled>Booked</button>
+                        @else
+                            <button class="btn btn-primary btn-lg">Book Now</button>
+                        @endif
                     </div>
                 </form>
             </div>
