@@ -95,7 +95,7 @@
                         <li><a href="#"
                                 class="link-dark d-inline-flex text-decoration-none rounded">New...</a></li>
                         <li><a href="#"
-                                class="link-dark d-inline-flex text-decoration-none rounded">{{ auth()->guard('admin')->user()->name }}</a>
+                                class="link-dark d-inline-flex text-decoration-none rounded">{{auth()->guard('admin')->user()->name }}</a>
                         </li>
                         <li><a href="#"
                                 class="link-dark d-inline-flex text-decoration-none rounded">Settings</a>

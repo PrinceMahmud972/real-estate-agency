@@ -27,6 +27,11 @@ Route::get('/properties', [HomeController::class, 'propertyIndex'])->name('prope
 Route::get('/properties/{property}', [HomeController::class, 'propertyShow'])->name('property.show');
 Route::post('/properties/{property}/bookings', [BookingController::class, 'store'])->name('booking.store');
 
+Route::get('/users/{user}', [UserController::class, 'show'])->name('users.show');
+Route::get('/users/{user}/edit', [UserController::class, 'edit'])->name('users.edit');
+Route::put('/users/{user}', [UserController::class, 'update'])->name('users.update');
+
+
 // User login/register routes
 Route::get('/login', [UserController::class, 'login'])->name('login');
 Route::post('/login', [UserController::class, 'postLogin'])->name('postLogin');

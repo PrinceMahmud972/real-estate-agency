@@ -13,7 +13,7 @@ class UserController extends Controller
 
     public function __construct()
     {
-        $this->middleware('auth')->only('logout');
+        $this->middleware('auth')->only('logout', 'edit', 'update');
         $this->middleware('guest')->only('login', 'postLogin', 'register', 'postRegister');
     }
 
@@ -106,6 +106,7 @@ class UserController extends Controller
      */
     public function show(User $user)
     {
+        return view('front.profile.show', ['user' => $user]);
     }
 
     /**
@@ -116,7 +117,10 @@ class UserController extends Controller
      */
     public function edit(User $user)
     {
-        //
+        if ($user->id !== auth()->user()->id) {
+            return redirect()->route('home');
+        }
+        return view('front.profile.edit', ['user' => $user]);
     }
 
     /**
@@ -128,7 +132,22 @@ class UserController extends Controller
      */
     public function update(Request $request, User $user)
     {
-        //
+        if ($user->id !== auth()->user()->id) {
+            return route('home');
+        }
+
+        $request->validate([
+            'name' => 'required|max:100',
+            'email' => 'required|email|unique:users,email,' . $user->id,
+            'password' => 'nullable|max:50|min:6'
+        ]);
+
+        $user->name = $request->name;
+        $user->email = $request->email;
+        $user->password = $request->password ? Hash::make($request->password) : $user->password;
+        $user->save();
+
+        return redirect()->route('users.show', ['user' => $user->id]);
     }
 
     /**

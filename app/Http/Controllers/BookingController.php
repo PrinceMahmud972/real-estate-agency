@@ -12,6 +12,7 @@ class BookingController extends Controller
 
     public function __construct()
     {
+        $this->middleware('auth:admin')->only('index');
         $this->middleware('auth')->only('store');
     }
 

@@ -35,7 +35,7 @@
                 <div class="nav-item dropdown">
                     <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">{{ auth()->user()->name }}</a>
                     <div class="dropdown-menu rounded-0 m-0">
-                        <a href="testimonial.html" class="dropdown-item">Profile</a>
+                        <a href="{{ route('users.show', ['user' =>auth()->user()->id]) }}" class="dropdown-item">Profile</a>
                         <a href="{{ route('logout') }}" class="dropdown-item">logout</a>
                     </div>
                 </div>
